@@ -1,31 +1,32 @@
 {
-  "name": "ecommerce-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "@prisma/client": "^6.18.0",
-    "amqplib": "^0.10.9",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "prisma": "^6.18.0",
-    "zod": "^4.1.12"
-  },
-  "devDependencies": {
-    "@types/amqplib": "^0.10.8",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.5",
-    "@types/node": "^24.9.2",
-    "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  }
+    "name": "ecommerce-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon --exec node --loader ts-node/esm src/server.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "@prisma/client": "^6.18.0",
+        "amqplib": "^0.10.9",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "prisma": "^6.18.0",
+        "zod": "^4.1.12"
+    },
+    "devDependencies": {
+        "@types/amqplib": "^0.10.8",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.5",
+        "@types/node": "^24.9.2",
+        "nodemon": "^3.1.10",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.3"
+    }
 }
