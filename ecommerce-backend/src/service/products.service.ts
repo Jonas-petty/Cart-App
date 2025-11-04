@@ -5,7 +5,7 @@ export const ProductService = {
         return prisma.product.findMany({ orderBy: { createdAt: "desc" } });
     },
     getById: (id: string) => {
-        return prisma.product.findFirst({ where: { id } });
+        return prisma.product.findUnique({ where: { id } });
     },
     create: (payload: { name: string; price: number; stock: number }) => {
         return prisma.product.create({ data: payload });
@@ -14,4 +14,4 @@ export const ProductService = {
         return prisma.product.deleteMany({ where: { id } });
     },
 };
-``
+``;
