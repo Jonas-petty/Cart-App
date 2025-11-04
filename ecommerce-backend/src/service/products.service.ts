@@ -17,4 +17,3 @@ export const ProductService = {
         return prisma.product.deleteMany({ where: { id } });
     },
 };
-``;
