@@ -4,7 +4,7 @@ export const CustumerSevice = {
     list: () => {
         return prisma.customer.findMany({ orderBy: { createdAt: "desc" } });
     },
-    getById: (id: string) => {
+    findById: (id: string) => {
         return prisma.customer.findFirst({ where: { id } });
     },
     create: (payload: { name: string; email: string; cpf: string }) => {

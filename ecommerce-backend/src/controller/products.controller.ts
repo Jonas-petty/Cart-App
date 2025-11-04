@@ -11,10 +11,10 @@ export async function list(_req: Request, res: Response, next: NextFunction) {
     }
 }
 
-export async function getById(req: Request, res: Response, next: NextFunction) {
+export async function findById(req: Request, res: Response, next: NextFunction) {
     try {
         const { id } = z.object({ id: z.string() }).parse(req.params);
-        const customer = await ProductService.getById(id);
+        const customer = await ProductService.findById(id);
         res.json({ ...customer });
     } catch (error) {
         next(error);
