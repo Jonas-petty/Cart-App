@@ -14,8 +14,8 @@ export async function list(_req: Request, res: Response, next: NextFunction) {
 export async function findById(req: Request, res: Response, next: NextFunction) {
     try {
         const { id } = z.object({ id: z.string() }).parse(req.params);
-        const customer = await ProductService.findById(id);
-        res.json({ ...customer });
+        const product = await ProductService.findById(id);
+        res.json({ ...product });
     } catch (error) {
         next(error);
     }
@@ -36,9 +36,9 @@ export async function create(req: Request, res: Response, next: NextFunction) {
         });
 
         const { name, price, stock } = schema.parse(req.body);
-        const customer = await ProductService.create({ name, price, stock });
+        const product = await ProductService.create({ name, price, stock });
 
-        res.status(201).json(customer);
+        res.status(201).json(product);
     } catch (error) {
         next(error);
     }
