@@ -11,6 +11,16 @@ export async function list(_req: Request, res: Response, next: NextFunction) {
     }
 }
 
+export async function getById(req: Request, res: Response, next: NextFunction) {
+    try {
+        const { id } = z.object({ id: z.string() }).parse(req.params);
+        const customer = await CustumerSevice.getById(id);
+        res.json({ ...customer });
+    } catch (error) {
+        next(error);
+    }
+}
+
 export async function create(req: Request, res: Response, next: NextFunction) {
     try {
         const schema = z.object({
