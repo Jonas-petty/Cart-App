@@ -2,12 +2,12 @@ import { prisma } from "../db/index.js";
 
 export const CustumerSevice = {
     list: () => {
-        prisma.customer.findMany({ orderBy: { createdAt: "desc" } });
+        return prisma.customer.findMany({ orderBy: { createdAt: "desc" } });
     },
     create: (payload: { name: string; email: string; cpf: string }) => {
-        prisma.customer.create({ data: payload });
+        return prisma.customer.create({ data: payload });
     },
     delete: (id: string) => {
-        prisma.customer.deleteMany({ where: { id } });
+        return prisma.customer.deleteMany({ where: { id } });
     },
 };
