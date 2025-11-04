@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import { OrderService } from "../service/orders.service.js";
 import z from "zod";
+import { error } from "console";
 
 export async function list(_req: Request, res: Response, next: NextFunction) {
     try {
@@ -19,7 +20,9 @@ export async function findById(
     try {
         const { id } = z.object({ id: z.string() }).parse(req.params);
         const order = await OrderService.findById(id);
-        res.json({ ...order });
+
+        if (!order) return res.status(404).json({ error: "Order not found" });
+        res.json(order);
     } catch (error) {
         next(error);
     }

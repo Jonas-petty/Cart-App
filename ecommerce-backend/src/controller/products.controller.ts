@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import { ProductService } from "../service/products.service.js";
 import z from "zod";
+import { error } from "console";
 
 export async function list(_req: Request, res: Response, next: NextFunction) {
     try {
@@ -11,11 +12,18 @@ export async function list(_req: Request, res: Response, next: NextFunction) {
     }
 }
 
-export async function findById(req: Request, res: Response, next: NextFunction) {
+export async function findById(
+    req: Request,
+    res: Response,
+    next: NextFunction
+) {
     try {
         const { id } = z.object({ id: z.string() }).parse(req.params);
         const product = await ProductService.findById(id);
-        res.json({ ...product });
+
+        if (!product)
+            return res.status(404).json({ error: "Product not found" });
+        res.json(product);
     } catch (error) {
         next(error);
     }

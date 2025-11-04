@@ -11,11 +11,18 @@ export async function list(_req: Request, res: Response, next: NextFunction) {
     }
 }
 
-export async function findById(req: Request, res: Response, next: NextFunction) {
+export async function findById(
+    req: Request,
+    res: Response,
+    next: NextFunction
+) {
     try {
         const { id } = z.object({ id: z.string() }).parse(req.params);
         const customer = await CustumerSevice.findById(id);
-        res.json({ ...customer });
+
+        if (!customer)
+            return res.status(404).json({ error: "Customer not found" });
+        res.json(customer);
     } catch (error) {
         next(error);
     }
