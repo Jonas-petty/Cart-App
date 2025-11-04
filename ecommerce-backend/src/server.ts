@@ -5,6 +5,7 @@ import { errorHandler } from "./middlewares/error.js";
 import { ensureRabbitTopology } from "./mq/rabbit.js";
 import customersRouter from "./routes/customers.routes.js";
 import productsRouter from "./routes/products.routes.js";
+import ordersRouter from "./routes/orders.routes.js";
 
 async function bootstrap() {
     await ensureRabbitTopology();
@@ -16,6 +17,7 @@ async function bootstrap() {
 
     app.use("/api", customersRouter);
     app.use("/api", productsRouter);
+    app.use("/api", ordersRouter);
 
     app.use(errorHandler);
 
