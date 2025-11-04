@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { errorHandler } from "./middlewares/error.js";
 import { ensureRabbitTopology } from "./mq/rabbit.js";
+import customersRouter from "./routes/customers.routes.js";
 
 async function bootstrap() {
     await ensureRabbitTopology();
@@ -11,6 +12,9 @@ async function bootstrap() {
 
     app.use(cors());
     app.use(express.json());
+
+    app.use("/api", customersRouter);
+
     app.use(errorHandler);
 
     const port = process.env.PORT || 3000;
