@@ -31,7 +31,7 @@ export async function findById(
 export async function create(req: Request, res: Response, next: NextFunction) {
     try {
         const schema = z.object({
-            custoemerId: z.string(),
+            customerId: z.string(),
             items: z
                 .array(
                     z.object({
@@ -42,8 +42,8 @@ export async function create(req: Request, res: Response, next: NextFunction) {
                 .min(1),
         });
 
-        const { custoemerId, items } = schema.parse(req.body);
-        const order = await OrderService.create(custoemerId, items);
+        const { customerId, items } = schema.parse(req.body);
+        const order = await OrderService.create(customerId, items);
 
         res.status(201).json(order);
     } catch (error) {
