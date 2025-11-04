@@ -4,6 +4,7 @@ import cors from "cors";
 import { errorHandler } from "./middlewares/error.js";
 import { ensureRabbitTopology } from "./mq/rabbit.js";
 import customersRouter from "./routes/customers.routes.js";
+import productsRouter from "./routes/products.routes.js";
 
 async function bootstrap() {
     await ensureRabbitTopology();
@@ -14,6 +15,7 @@ async function bootstrap() {
     app.use(express.json());
 
     app.use("/api", customersRouter);
+    app.use("/api", productsRouter);
 
     app.use(errorHandler);
 
