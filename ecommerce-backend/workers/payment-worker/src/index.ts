@@ -1,3 +1,4 @@
+import "dotenv/config"
 import { PrismaClient, OrderStatus } from "../../../generated/prisma/client.js";
 import type { Channel } from "amqplib";
 import { getChannel } from "./mq/rabbit.js";
