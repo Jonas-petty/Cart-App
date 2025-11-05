@@ -88,6 +88,7 @@ async function main() {
         (msg: any) => processMessage(msg, channel),
         { noAck: false }
     );
+    console.log("[PAYMENT-WORKER] consuming payment.order_created")
 }
 
 main().catch((error) => {
