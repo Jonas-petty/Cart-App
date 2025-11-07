@@ -32,7 +32,7 @@ export async function create(req: Request, res: Response, next: NextFunction) {
     try {
         const schema = z.object({
             name: z.string(),
-            email: z.string(),
+            email: z.email(),
             cpf: z.string(),
         });
 
