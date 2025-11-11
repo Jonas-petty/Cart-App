@@ -31,13 +31,13 @@ const NavLink = styled(Link)<{ $active?: boolean }>`
     text-decoration: none;
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    border-radius: 999px;
-    color: ${($active) => ($active ? "#111827" : "#e5e7eb")};
-    background-color: ${($active) => ($active ? "#f9fafb" : "transparent")};
+    border-radius: 2rem;
+    color: ${({ $active }) => ($active ? "#111827" : "#e5e7eb")};
+    background-color: ${({ $active }) => ($active ? "#f9fafb" : "transparent")};
     transition: background-color 0.15s ease, color 0.15s ease;
 
     &:hover {
-        background-color: ${($active) => ($active ? "#e5e7eb" : "#1f2937")};
+        background-color: ${({ $active }) => ($active ? "#e5e7eb" : "#1f2937")};
     }
 `;
 
