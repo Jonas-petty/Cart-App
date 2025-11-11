@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import OrderDetail from "./pages/OrderDetail";
 import NotFound from "./pages/NotFound";
+import { CartProvider } from "./service/CartContext";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -45,19 +46,21 @@ const GlobalStyle = createGlobalStyle`
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <BrowserRouter>
-            <GlobalStyle />
-            <AppShell>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<Navigate to="/products" replace />}
-                    />
-                    <Route path="/products" element={<Products />} />
-                    <Route path="/orders" element={<Orders />} />
-                    <Route path="/orders/:id" element={<OrderDetail />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </AppShell>
+            <CartProvider>
+                <GlobalStyle />
+                <AppShell>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={<Navigate to="/products" replace />}
+                        />
+                        <Route path="/products" element={<Products />} />
+                        <Route path="/orders" element={<Orders />} />
+                        <Route path="/orders/:id" element={<OrderDetail />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </AppShell>
+            </CartProvider>
         </BrowserRouter>
     </StrictMode>
 );
