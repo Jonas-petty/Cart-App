@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Cart from "./pages/Cart";
-import Product from "./pages/Product";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
+import Products from "./pages/Products";
+import Orders from "./pages/Orders";
+import OrderDetail from "./pages/OrderDetail";
+import NotFound from "./pages/NotFound";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -44,9 +45,11 @@ createRoot(document.getElementById("root")!).render(
         <BrowserRouter>
             <GlobalStyle />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/products" element={<Product />} />
+                <Route path="/" element={<Navigate to="/products" replace />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/orders/:id" element={<OrderDetail />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     </StrictMode>
