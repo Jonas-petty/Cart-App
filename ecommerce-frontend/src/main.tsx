@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
+import AppShell from "./components/AppShell";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import OrderDetail from "./pages/OrderDetail";
@@ -44,13 +45,18 @@ createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <BrowserRouter>
             <GlobalStyle />
-            <Routes>
-                <Route path="/" element={<Navigate to="/products" replace />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/orders/:id" element={<OrderDetail />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+            <AppShell>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Navigate to="/products" replace />}
+                    />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/orders/:id" element={<OrderDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </AppShell>
         </BrowserRouter>
     </StrictMode>
 );
