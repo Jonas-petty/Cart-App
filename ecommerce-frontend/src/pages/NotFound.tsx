@@ -1,5 +1,7 @@
 function NotFound() {
-    return ( <h1>Not Found</h1> );
+    return (
+        <p style={{ fontSize: 16 }}>Página não encontrada. Verifique a URL.</p>
+    );
 }
 
 export default NotFound;
