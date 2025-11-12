@@ -2,6 +2,12 @@
 
 Aplicação que simula um Ecommerce com fluxo síncrono (API REST) utilizando Express e fluxo assíncrono (event-drive) utilzando Rabbitmq.
 
+## Interface
+
+|                                              |                                            |                                                    |
+| -------------------------------------------- | ------------------------------------------ | -------------------------------------------------- |
+| ![Inteface 1](assets/ecommerce_products.png) | ![Inteface 1](assets/ecommerce_orders.png) | ![Inteface 1](assets/ecommerce_orders_details.png) |
+
 ## Estrutura
 
 ```bash
