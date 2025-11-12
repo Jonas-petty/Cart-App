@@ -6,6 +6,7 @@ import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import OrderStatusBadge from "../components/domain/OrderStatusBadge";
 import { Link } from "react-router-dom";
+import type { Order } from "../types";
 
 const Title = styled.h1`
     font-size: 1.25rem;
@@ -43,7 +44,7 @@ const OrderMeta = styled.div`
 
 function Orders() {
     const [customerId, setCustomerId] = useState("");
-    const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
