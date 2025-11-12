@@ -10,3 +10,19 @@ export type Product = {
     price: number;
     stock: number;
 };
+
+export type OrderItem = {
+    id: string;
+    productId: string;
+    quantity: number;
+    unitPrice: number;
+};
+
+export type Order = {
+    id: string;
+    customerId: string;
+    status: OrderStatus;
+    createdAt: string;
+    updatedAt: string;
+    items: OrderItem[];
+};
