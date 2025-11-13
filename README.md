@@ -6,7 +6,7 @@ Aplicação que simula um Ecommerce com fluxo síncrono (API REST) utilizando Ex
 
 |                                              |                                            |                                                    |
 | -------------------------------------------- | ------------------------------------------ | -------------------------------------------------- |
-| ![Inteface 1](assets/ecommerce_products.png) | ![Inteface 1](assets/ecommerce_orders.png) | ![Inteface 1](assets/ecommerce_orders_details.png) |
+| ![Inteface 1](assets/ecommerce_products.png) | ![Inteface 2](assets/ecommerce_orders.png) | ![Inteface 3](assets/ecommerce_orders_details.png) |
 
 ## Estrutura
 
@@ -53,7 +53,9 @@ API REST -> payment-worker -> stock-worker
 | **POST** | `/orders`               | Adicina pedido                  |
 | **GET**  | `/customers/:id/orders` | Lista pedidos por ID do Cliente |
 
-## Como Rodar o Projeto Localmente
+## Como Rodar o Projeto
+
+### Back-End
 
 1. Clone o projeto:
 
@@ -127,16 +129,36 @@ npm run dev
 
 Podem ser feitos utilizando Postman, Insomnia ou outro API Client de escolha.
 
-## Ferramentas utilizadas
+### Front-End
 
--   Typescript
--   Express
--   Prisma
--   Zod
--   dotenv
--   amqplib
--   cors
--   nodemon
+1. Rodar Front-end
+
+```bash
+# Dentro de ecommerce-frontend/src
+npm install
+npm run dev
+```
+
+Obs: Front-end vai rodar no http://localhost:5173/
+
+## Ferramentas
+
+-   Back-end
+
+    -   Typescript
+    -   Express
+    -   Prisma
+    -   Zod
+    -   dotenv
+    -   amqplib
+    -   cors
+    -   nodemon
+
+-   Front-end
+    -   Vite
+    -   Typescript
+    -   Styled-components
+    -   React-router-dom
 
 ## Objetivos Futuros:
 
